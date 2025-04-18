@@ -11,7 +11,7 @@ import icon from 'astro-icon';
 
 import react from '@astrojs/react';
 
-const SITE="https://silksong.info";
+const SITE="https://tralalerotralala.wiki";
 
 // https://astro.build/config
 export default defineConfig({
