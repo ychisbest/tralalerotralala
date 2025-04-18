@@ -1,0 +1,720 @@
+---
+// Import necessary components and utilities
+import Formalizer from "@/components/Formalizer";
+import { SITE_TITLE } from "@/consts";
+import Image from "astro/components/Image.astro";
+import { Icon } from "astro-icon/components";
+import { DEFAULT_LOCALE, LOCALES, useTranslations, type Lang } from "@/i18n";
+import Layout from "@/layouts/Base.astro";
+import image1 from "@/assets/1.png";
+import image2 from "@/assets/2.png";
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+// Generate static paths for locales
+export const getStaticPaths = () =>
+  Object.keys(LOCALES).map((lang) => ({ params: { lang } }));
+
+
+const currentLocale = locale as Lang;
+
+const canonical = currentLocale === DEFAULT_LOCALE ? (Astro.site?.toString() ?? '') : (Astro.url?.toString() ?? '');
+---
+
+<Layout canonical={canonical}>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-bold mb-4">{ t({
+        en: "Tralalero Tralala Wiki",
+        es: "Wiki de Tralalero Tralala",
+        ar: "ويكي Tralalero Tralala",
+        pt: "Wiki Tralalero Tralala",
+        fr: "Wiki Tralalero Tralala",
+        ru: "Вики Tralalero Tralala",
+        "zh-cn": "Tralalero Tralala维基",
+        ja: "Tralalero Tralala Wiki",
+      }) }</h1>
+      <p class="text-lg text-gray-600 mb-6">{ t({
+        en: "The comprehensive encyclopedia of the viral TikTok sensation Tralalero Tralala - Discover everything about this unique internet phenomenon that has captured hearts worldwide",
+        es: "La enciclopedia completa de la sensación viral de TikTok Tralalero Tralala - Descubre todo sobre este fenómeno único de internet que ha capturado corazones en todo el mundo",
+        ar: "الموسوعة الشاملة لظاهرة TikTok الفيروسية Tralalero Tralala - اكتشف كل شيء عن هذه الظاهرة الفريدة على الإنترنت التي استحوذت على القلوب في جميع أنحاء العالم",
+        pt: "A enciclopédia abrangente da sensação viral do TikTok Tralalero Tralala - Descubra tudo sobre este fenômeno único da internet que conquistou corações em todo o mundo",
+        fr: "L'encyclopédie complète de la sensation virale de TikTok Tralalero Tralala - Découvrez tout sur ce phénomène internet unique qui a conquis les cœurs du monde entier",
+        ru: "Подробная энциклопедия вирусной сенсации TikTok Tralalero Tralala - Узнайте все об этом уникальном интернет-феномене, покорившем сердца по всему миру",
+        "zh-cn": "病毒式TikTok现象 Tralalero Tralala 的综合百科全书 - 探索这个独特互联网现象的一切，它已俘获了全世界的心",
+        ja: "バイラルTikTokセンセーション Tralalero Tralala の包括的な百科事典 - 世界中の心を捉えたこのユニークなインターネット現象のすべてを発見する",
+      }) }</p>
+      <div class="bg-blue-100 p-4 rounded-lg inline-flex items-center gap-2 text-blue-700">
+        <Icon name="mdi:information" class="w-5 h-5" />
+        <span>{ t({
+          en: "A groundbreaking internet meme that revolutionized social media in early 2025",
+          es: "Un meme de internet innovador que revolucionó las redes sociales a principios de 2025",
+          ar: "ميم إنترنت رائد أحدث ثورة في وسائل التواصل الاجتماعي في أوائل عام 2025",
+          pt: "Um meme de internet inovador que revolucionou as mídias sociais no início de 2025",
+          fr: "Un mème internet révolutionnaire qui a révolutionné les médias sociaux début 2025",
+          ru: "Прорывной интернет-мем, произведший революцию в социальных сетях в начале 2025 года",
+          "zh-cn": "一个在2025年初彻底改变社交媒体的突破性互联网迷因",
+          ja: "2025年初にソーシャルメディアに革命をもたらした画期的なインターネットミーム",
+        }) }</span>
+      </div>
+    </header>
+
+    <!-- Hero Image Section -->
+    <div class="mb-10 bg-gray-100 rounded-xl aspect-video flex items-center justify-center">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/dkGyBlibvRw?autoplay=1&si=PDZJBxB3cpYK3-2B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Key Points -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:lightning-bolt" class="w-6 h-6 text-amber-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "Essential Facts about Tralalero Tralala",
+          es: "Hechos Esenciales sobre Tralalero Tralala",
+          ar: "حقائق أساسية حول Tralalero Tralala",
+          pt: "Fatos Essenciais sobre Tralalero Tralala",
+          fr: "Faits Essentiels sur Tralalero Tralala",
+          ru: "Основные факты о Tralalero Tralala",
+          "zh-cn": "关于 Tralalero Tralala 的基本事实",
+          ja: "Tralalero Tralala の基本情報",
+        }) }</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <p class="mb-4">{ t({
+          en: "The Tralalero Tralala phenomenon has become one of the most fascinating internet sensations of 2025, combining elements of meme culture, creative storytelling, and community engagement. Here are the key aspects that make Tralalero Tralala unique:",
+          es: "El fenómeno Tralalero Tralala se ha convertido en una de las sensaciones de internet más fascinantes de 2025, combinando elementos de la cultura meme, la narración creativa y la participación comunitaria. Aquí están los aspectos clave que hacen que Tralalero Tralala sea único:",
+          ar: "أصبحت ظاهرة Tralalero Tralala واحدة من أروع ظواهر الإنترنت في عام 2025، حيث تجمع بين عناصر ثقافة الميم، ورواية القصص الإبداعية، والمشاركة المجتمعية. فيما يلي الجوانب الرئيسية التي تجعل Tralalero Tralala فريدًا:",
+          pt: "O fenômeno Tralalero Tralala tornou-se uma das sensações da internet mais fascinantes de 2025, combinando elementos da cultura meme, narrativa criativa e engajamento comunitário. Aqui estão os aspectos chave que tornam Tralalero Tralala único:",
+          fr: "Le phénomène Tralalero Tralala est devenu l'une des sensations internet les plus fascinantes de 2025, combinant des éléments de la culture meme, de la narration créative et de l'engagement communautaire. Voici les aspects clés qui rendent Tralalero Tralala unique :",
+          ru: "Феномен Tralalero Tralala стал одной из самых увлекательных интернет-сенсаций 2025 года, сочетая в себе элементы мем-культуры, творческого рассказывания историй и вовлеченности сообщества. Вот ключевые аспекты, которые делают Tralalero Tralala уникальным:",
+          "zh-cn": "Tralalero Tralala 现象已成为2025年最引人入胜的互联网现象之一，它结合了迷因文化、创意叙事和社区参与的元素。以下是使 Tralalero Tralala 独一无二的关键方面：",
+          ja: "Tralalero Tralala 現象は、ミーム文化、創造的なストーリーテリング、コミュニティエンゲージメントの要素を組み合わせた、2025年の最も魅力的なインターネットセンセーションの1つになりました。Tralalero Tralala をユニークにする主な側面は以下のとおりです。",
+        }) }</p>
+        <ul class="space-y-3">
+          <li class="flex gap-2">
+            <Icon name="mdi:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+            <span>{ t({
+              en: "Tralalero Tralala emerged as a groundbreaking TikTok character, distinctively portrayed as a three-legged shark sporting stylish blue Nike shoes. This unique design has become instantly recognizable across social media platforms.",
+              es: "Tralalero Tralala surgió como un personaje innovador de TikTok, distintivamente retratado como un tiburón de tres patas que usa elegantes zapatos Nike azules. Este diseño único se ha vuelto instantáneamente reconocible en todas las plataformas de redes sociales.",
+              ar: "ظهر Tralalero Tralala كشخصية TikTok رائدة، تم تصويره بشكل مميز كقرش بثلاثة أرجل يرتدي أحذية نايكي زرقاء أنيقة. أصبح هذا التصميم الفريد قابلاً للتعرف عليه على الفور عبر منصات التواصل الاجتماعي.",
+              pt: "Tralalero Tralala surgiu como um personagem inovador do TikTok, distintamente retratado como um tubarão de três pernas ostentando elegantes sapatos Nike azuis. Este design único tornou-se instantaneamente reconhecível em todas as plataformas de mídias sociais.",
+              fr: "Tralalero Tralala est apparu comme un personnage TikTok révolutionnaire, distinctement représenté comme un requin à trois pattes portant des chaussures Nike bleues élégantes. Ce design unique est devenu instantanément reconnaissable sur toutes les plateformes de médias sociaux.",
+              ru: "Tralalero Tralala появился как новаторский персонаж TikTok, отчетливо изображенный в виде трехлапой акулы, носящей стильные синие кроссовки Nike. Этот уникальный дизайн стал мгновенно узнаваемым на всех платформах социальных сетей.",
+              "zh-cn": "Tralalero Tralala 作为开创性的TikTok角色出现，其独特之处在于被描绘成一条穿着时尚蓝色耐克鞋的三条腿鲨鱼。这个独特的设计在社交媒体平台上变得立即可识别。",
+              ja: "Tralalero Tralala は、スタイリッシュな青いナイキスニーカーを履いた三本足のサメとして独特の描写がされた、画期的なTikTokキャラクターとして登場しました。このユニークなデザインは、ソーシャルメディアプラットフォーム全体ですぐに認識されるようになりました。",
+            }) }</span>
+          </li>
+          <li class="flex gap-2">
+            <Icon name="mdi:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+            <span>{ t({
+              en: "The Tralalero Tralala movement began with an AI-generated robotic Italian voice that quickly became a cultural touchstone. The character's signature sound has inspired countless remixes and interpretations.",
+              es: "El movimiento Tralalero Tralala comenzó con una voz robótica italiana generada por IA que rápidamente se convirtió en un hito cultural. El sonido característico del personaje ha inspirado innumerables remixes e interpretaciones.",
+              ar: "بدأت حركة Tralalero Tralala بصوت إيطالي آلي تم إنشاؤه بواسطة الذكاء الاصطناعي والذي سرعان ما أصبح علامة ثقافية بارزة. ألهم الصوت المميز للشخصية عددًا لا يحصى من الريمكسات والتفسيرات.",
+              pt: "O movimento Tralalero Tralala começou com uma voz robótica italiana gerada por IA que rapidamente se tornou um marco cultural. O som característico do personagem inspirou inúmeros remixes e interpretações.",
+              fr: "Le mouvement Tralalero Tralala a commencé avec une voix italienne robotique générée par IA qui est rapidement devenue une référence culturelle. Le son signature du personnage a inspiré d'innombrables remixes et interprétations.",
+              ru: "Движение Tralalero Tralala началось с роботизированного итальянского голоса, сгенерированного ИИ, который быстро стал культурным ориентиром. Фирменный звук персонажа вдохновил бесчисленные ремиксы и интерпретации.",
+              "zh-cn": "Tralalero Tralala 运动始于一个AI生成的机械式意大利语音，它迅速成为了一个文化试金石。该角色的标志性声音激发了无数的混音和诠释。",
+              ja: "Tralalero Tralala の動きは、AIによって生成されたロボットのようなイタリア語の音声から始まり、すぐに文化的な試金石となりました。このキャラクターのシグネチャサウンドは、無数のリミックスや解釈を刺激しました。",
+            }) }</span>
+          </li>
+          <li class="flex gap-2">
+            <Icon name="mdi:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+            <span>{ t({
+              en: "The Tralalero Tralala universe has expanded through extensive community worldbuilding, featuring complex storylines, epic battles, and a rich mythology that continues to grow daily.",
+              es: "El universo Tralalero Tralala se ha expandido a través de una extensa construcción de mundo por parte de la comunidad, presentando complejas tramas, batallas épicas y una rica mitología que continúa creciendo a diario.",
+              ar: "توسع عالم Tralalero Tralala من خلال بناء عالم مجتمعي واسع النطاق، يتميز بقصص معقدة، ومعارك ملحمية، وأساطير غنية تستمر في النمو يوميًا.",
+              pt: "O universo Tralalero Tralala expandiu-se através de uma extensa construção de mundo pela comunidade, apresentando enredos complexos, batalhas épicas e uma rica mitologia que continua a crescer diariamente.",
+              fr: "L'univers Tralalero Tralala s'est étendu grâce à une vaste construction de monde communautaire, présentant des scénarios complexes, des batailles épiques et une riche mythologie qui continue de croître quotidiennement.",
+              ru: "Вселенная Tralalero Tralala расширилась за счет обширного построения мира сообществом, предлагая сложные сюжетные линии, эпические битвы и богатую мифологию, которая продолжает расти ежедневно.",
+              "zh-cn": "Tralalero Tralala 宇宙通过广泛的社区世界构建而得以扩展，其中包括复杂的故事情节、史诗般的战斗以及每天都在持续丰富的神话。",
+              ja: "Tralalero Tralala の世界は、広範なコミュニティによるワールドビルディングを通じて拡大し、複雑なストーリーライン、壮大な戦い、そして日々成長し続ける豊かな神話を特徴としています。",
+            }) }</span>
+          </li>
+          <li class="flex gap-2">
+            <Icon name="mdi:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+            <span>{ t({
+              en: "From its humble beginnings, Tralalero Tralala has spawned a vast creative ecosystem including merchandise, music tracks, and digital art, all while maintaining strong connections to Italian cultural elements.",
+              es: "Desde sus humildes comienzos, Tralalero Tralala ha generado un vasto ecosistema creativo que incluye mercancía, pistas musicales y arte digital, todo ello manteniendo fuertes conexiones con los elementos culturales italianos.",
+              ar: "منذ بداياته المتواضعة، أنشأ Tralalero Tralala نظامًا بيئيًا إبداعيًا واسعًا يشمل البضائع والمسارات الموسيقية والفن الرقمي، كل ذلك مع الحفاظ على روابط قوية بالعناصر الثقافية الإيطالية.",
+              pt: "Desde seus humildes começos, Tralalero Tralala gerou um vasto ecossistema criativo, incluindo mercadorias, faixas de música e arte digital, tudo isso mantendo fortes conexões com elementos culturais italianos.",
+              fr: "Depuis ses humbles débuts, Tralalero Tralala a engendré un vaste écosystème créatif comprenant des produits dérivés, des pistes musicales et de l'art numérique, tout en maintenant de solides liens avec les éléments culturels italiens.",
+              ru: "С самого скромного начала, Tralalero Tralala породил огромную творческую экосистему, включающую мерчандайзинг, музыкальные треки и цифровое искусство, сохраняя при этом сильные связи с итальянскими культурными элементами.",
+              "zh-cn": "从卑微的开端开始，Tralalero Tralala 催生了一个广阔的创意生态系统，包括商品、音乐曲目和数字艺术，同时保持着与意大利文化元素的紧密联系。",
+              ja: "謙虚な始まりから、Tralalero Tralala は、商品、音楽トラック、デジタルアートを含む広大なクリエイティブエコシステムを生み出し、イタリアの文化的要素との強い繋がりを維持しています。",
+            }) }</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Origin -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:history" class="w-6 h-6 text-indigo-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "The Birth and Evolution of Tralalero Tralala",
+          es: "El Nacimiento y Evolución de Tralalero Tralala",
+          ar: "ميلاد وتطور Tralalero Tralala",
+          pt: "O Nascimento e Evolução de Tralalero Tralala",
+          fr: "La Naissance et l'Évolution de Tralalero Tralala",
+          ru: "Рождение и эволюция Tralalero Tralala",
+          "zh-cn": "Tralalero Tralala 的诞生与演变",
+          ja: "Tralalero Tralala の誕生と進化",
+        }) }</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <p class="mb-4">{ t({
+          en: "The Tralalero Tralala phenomenon began as a simple sound clip that would forever change internet culture. When a TikTok user first introduced the robotic Italian voice in early 2025, no one could have predicted how this unique character would capture the imagination of millions. The original Tralalero Tralala monologue, which playfully blended gaming references with family dynamics, quickly became the foundation for an entire digital universe.",
+          es: "El fenómeno Tralalero Tralala comenzó como un simple clip de audio que cambiaría para siempre la cultura de internet. Cuando un usuario de TikTok introdujo por primera vez la voz robótica italiana a principios de 2025, nadie podría haber predicho cómo este personaje único capturaría la imaginación de millones. El monólogo original de Tralalero Tralala, que mezclaba juguetonamente referencias de juegos con dinámicas familiares, rápidamente se convirtió en la base de todo un universo digital.",
+          ar: "بدأت ظاهرة Tralalero Tralala كمقطع صوتي بسيط سيغير ثقافة الإنترنت إلى الأبد. عندما قدم مستخدم TikTok الصوت الإيطالي الآلي لأول مرة في أوائل عام 2025، لم يتنبأ أحد كيف ستستحوذ هذه الشخصية الفريدة على خيال الملايين. أصبحت مونولوج Tralalero Tralala الأصلي، الذي يمزج بمرح بين إشارات الألعاب وديناميكيات الأسرة، أساسًا لكون رقمي كامل.",
+          pt: "O fenômeno Tralalero Tralala começou como um simples clipe de som que mudaria para sempre a cultura da internet. Quando um usuário do TikTok introduziu pela primeira vez a voz robótica italiana no início de 2025, ninguém poderia ter previsto como este personagem único capturaria a imaginação de milhões. O monólogo original de Tralalero Tralala, que misturava ludicamente referências de jogos com dinâmicas familiares, rapidamente se tornou a base para um universo digital inteiro.",
+          fr: "Le phénomène Tralalero Tralala a commencé comme un simple extrait sonore qui allait changer à jamais la culture internet. Lorsqu'un utilisateur de TikTok a introduit pour la première fois la voix italienne robotique début 2025, personne n'aurait pu prédire comment ce personnage unique capturerait l'imagination de millions de personnes. Le monologue original de Tralalero Tralala, qui mêlait ludiquement des références de jeux et des dynamiques familiales, est rapidement devenu la base de tout un univers numérique.",
+          ru: "Феномен Tralalero Tralala начался как простой звуковой клип, который навсегда изменит интернет-культуру. Когда пользователь TikTok впервые представил роботизированный итальянский голос в начале 2025 года, никто не мог предсказать, как этот уникальный персонаж захватит воображение миллионов. Оригинальный монолог Tralalero Tralala, который игриво смешивал игровые отсылки с семейной динамикой, быстро стал основой целой цифровой вселенной.",
+          "zh-cn": "Tralalero Tralala 现象始于一个简单的声音片段，它将永远改变互联网文化。当一位TikTok用户在2025年初首次引入了那个机械式的意大利语音时，没有人能够预料到这个独特的角色会如何俘获数百万人的想象力。那个将游戏引用与家庭动态巧妙融合的原始 Tralalero Tralala 独白，迅速成为了整个数字宇宙的基础。",
+          ja: "Tralalero Tralala 現象は、インターネット文化を永遠に変えることになる単純なサウンドクリップとして始まりました。2025年初頭にTikTokユーザーが初めてロボットのようなイタリア語の音声を導入したとき、このユニークなキャラクターがどのように何百万人もの想像力を捉えるかを予測できた人はいませんでした。ゲームの言及と家族のダイナミクスを遊び心たっぷりにブレンドした元の Tralalero Tralala のモノローグは、すぐにデジタル宇宙全体の基盤となりました。",
+        }) }</p>
+        
+        <div class="mb-4 bg-gray-100 rounded-lg p-4 aspect-video flex items-center justify-center">
+          <Image src={image1} alt={t({
+            en: "The Original Tralalero Tralala Character Design",
+            es: "Diseño Original del Personaje Tralalero Tralala",
+            ar: "التصميم الأصلي لشخصية Tralalero Tralala",
+            pt: "Design Original do Personagem Tralalero Tralala",
+            fr: "Design Original du Personnage Tralalero Tralala",
+            ru: "Оригинальный дизайн персонажа Tralalero Tralala",
+            "zh-cn": "Tralalero Tralala 的原始角色设计",
+            ja: "Tralalero Tralala のオリジナルキャラクターデザイン",
+          })} />
+        </div>
+        
+        <p class="mb-4">{ t({
+          en: "The distinctive design of Tralalero Tralala represents a masterful blend of the absurd and the endearing. As a shark adapted for land movement, Tralalero Tralala sports three legs - two transformed from its side fins and one cleverly evolved from its tail. The addition of blue Nike shoes not only adds a modern twist but has become a crucial part of the character's identity and merchandising appeal.",
+          es: "El diseño distintivo de Tralalero Tralala representa una mezcla magistral de lo absurdo y lo entrañable. Como un tiburón adaptado para el movimiento terrestre, Tralalero Tralala luce tres patas: dos transformadas de sus aletas laterales y una evolucionada inteligentemente de su cola. La adición de zapatos Nike azules no solo agrega un toque moderno, sino que se ha convertido en una parte crucial de la identidad del personaje y su atractivo para el merchandising.",
+          ar: "يمثل التصميم المميز لشخصية Tralalero Tralala مزيجًا بارعًا بين السخافة والجاذبية. كقرش يتكيف للحركة على اليابسة، يمتلك Tralalero Tralala ثلاث أرجل - اثنتان تحولتا من زعانفه الجانبية وواحدة تطورت بذكاء من ذيله. إضافة أحذية نايكي الزرقاء لا تضيف لمسة عصرية فحسب، بل أصبحت جزءًا أساسيًا من هوية الشخصية وجاذبيتها التجارية.",
+          pt: "O design distintivo de Tralalero Tralala representa uma mistura magistral do absurdo e do cativante. Como um tubarão adaptado para o movimento terrestre, Tralalero Tralala ostenta três pernas - duas transformadas de suas barbatanas laterais e uma inteligentemente evoluída de sua cauda. A adição de sapatos Nike azuis não apenas adiciona um toque moderno, mas se tornou uma parte crucial da identidade do personagem e seu apelo para merchandising.",
+          fr: "Le design distinctif de Tralalero Tralala représente un mélange magistral de l'absurde et de l'attachant. En tant que requin adapté au mouvement terrestre, Tralalero Tralala arbore trois pattes - deux transformées de ses nageoires latérales et une astucieusement évoluée de sa queue. L'ajout de chaussures Nike bleues n'ajoute pas seulement une touche moderne, mais est devenu une partie cruciale de l'identité du personnage et de son attrait pour le merchandising.",
+          ru: "Отличительный дизайн Tralalero Tralala представляет собой мастерское сочетание абсурдного и милого. Как акула, приспособленная для передвижения по суше, Tralalero Tralala имеет три лапы — две, преобразованные из боковых плавников, и одна, искусно развившаяся из хвоста. Добавление синих кроссовок Nike не только придает современный штрих, но и стало ключевой частью идентичности персонажа и его привлекательности для мерчендайзинга.",
+          "zh-cn": "Tralalero Tralala 独特的角色设计完美地融合了荒诞与可爱。作为一只适应陆地移动的鲨鱼，Tralalero Tralala 长着三条腿——两条由侧鳍演变而来，一条巧妙地从尾巴进化而来。添加蓝色耐克鞋不仅增加了现代感，也成为了该角色身份及其商品吸引力的关键部分。",
+          ja: "Tralalero Tralala の独特なデザインは、不条理さと愛らしさの見事な融合を表しています。陸上での移動に適応したサメとして、Tralalero Tralala は3本の足を持っています。2本は側鰭から変化し、1本は尾から巧みに進化しました。青いナイキスニーカーの追加は、モダンなひねりを加えるだけでなく、キャラクターのアイデンティティとマーチャンダイジングアピールの重要な部分となっています。",
+        }) }</p>
+
+        <p>{ t({
+          en: "The Tralalero Tralala character design has sparked countless interpretations and variations, with artists and creators worldwide putting their own spin on this beloved character. The community's creative contributions have helped establish Tralalero Tralala as more than just a meme - it's become a symbol of internet creativity and collaborative storytelling.",
+          es: "El diseño del personaje Tralalero Tralala ha provocado innumerables interpretaciones y variaciones, con artistas y creadores de todo el mundo dando su propio toque a este querido personaje. Las contribuciones creativas de la comunidad han ayudado a establecer a Tralalero Tralala como algo más que un meme: se ha convertido en un símbolo de la creatividad en internet y la narración colaborativa.",
+          ar: "أثار تصميم شخصية Tralalero Tralala عددًا لا يحصى من التفسيرات والتنوعات، حيث يضع الفنانون والمبدعون في جميع أنحاء العالم بصمتهم الخاصة على هذه الشخصية المحبوبة. ساهمت المساهمات الإبداعية للمجتمع في ترسيخ Tralalero Tralala كأكثر من مجرد ميم - لقد أصبح رمزًا للإبداع على الإنترنت ورواية القصص التعاونية.",
+          pt: "O design do personagem Tralalero Tralala desencadeou inúmeras interpretações e variações, com artistas e criadores de todo o mundo dando seu toque pessoal a este amado personagem. As contribuições criativas da comunidade ajudaram a estabelecer Tralalero Tralala como mais do que apenas um meme - tornou-se um símbolo de criatividade na internet e narração colaborativa.",
+          fr: "Le design du personnage Tralalero Tralala a suscité d'innombrables interprétations et variations, avec des artistes et des créateurs du monde entier apportant leur propre touche à ce personnage bien-aimé. Les contributions créatives de la communauté ont aidé à établir Tralalero Tralala comme plus qu'un simple mème - c'est devenu un symbole de créativité internet et de narration collaborative.",
+          ru: "Дизайн персонажа Tralalero Tralala вызвал бесчисленные интерпретации и вариации, когда художники и создатели по всему миру привносят свой собственный взгляд на этого любимого персонажа. Творческий вклад сообщества помог утвердить Tralalero Tralala как нечто большее, чем просто мем — он стал символом интернет-творчества и совместного рассказывания историй.",
+          "zh-cn": "Tralalero Tralala 的角色设计激发了无数的诠释和变体，世界各地的艺术家和创作者都为这个深受喜爱的角色加入了他们自己的特色。社区的创意贡献帮助 Tralalero Tralala 不仅仅是一个迷因——它已经成为了互联网创意和协作式叙事的象征。",
+          ja: "Tralalero Tralala のキャラクターデザインは、無数の解釈とバリエーションを生み出し、世界中のアーティストやクリエイターがこの愛されるキャラクターに独自のひねりを加えています。コミュニティの創造的な貢献は、Tralalero Tralala を単なるミーム以上のものとして確立するのに役立ちました。それはインターネットの創造性と共同ストーリーテリングの象徴となっています。",
+        }) }</p>
+      </div>
+    </section>
+
+    <!-- Cultural Impact -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:trending-up" class="w-6 h-6 text-rose-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "The Cultural Revolution of Tralalero Tralala",
+          es: "La Revolución Cultural de Tralalero Tralala",
+          ar: "الثورة الثقافية لـ Tralalero Tralala",
+          pt: "A Revolução Cultural de Tralalero Tralala",
+          fr: "La Révolution Culturelle de Tralalero Tralala",
+          ru: "Культурная революция Tralalero Tralala",
+          "zh-cn": "Tralalero Tralala 的文化革命",
+          ja: "Tralalero Tralala の文化革命",
+        }) }</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <p class="mb-6">{ t({
+          en: "The impact of Tralalero Tralala on internet culture has been nothing short of revolutionary, transforming how we think about viral content and community-driven creativity.",
+          es: "El impacto de Tralalero Tralala en la cultura de internet ha sido nada menos que revolucionario, transformando la forma en que pensamos sobre el contenido viral y la creatividad impulsada por la comunidad.",
+          ar: "كان تأثير Tralalero Tralala على ثقافة الإنترنت ثوريًا بكل معنى الكلمة، حيث غير طريقة تفكيرنا في المحتوى الفيروسي والإبداع المدفوع بالمجتمع.",
+          pt: "O impacto de Tralalero Tralala na cultura da internet tem sido nada menos que revolucionário, transformando a forma como pensamos sobre conteúdo viral e criatividade impulsionada pela comunidade.",
+          fr: "L'impact de Tralalero Tralala sur la culture internet a été tout simplement révolutionnaire, transformant la façon dont nous envisageons le contenu viral et la créativité axée sur la communauté.",
+          ru: "Влияние Tralalero Tralala на интернет-культуру было поистине революционным, изменив наше представление о вирусном контенте и творчестве, основанном на сообществе.",
+          "zh-cn": "Tralalero Tralala 对互联网文化的影响堪称革命性，它改变了我们对病毒式内容和社区驱动创意的看法。",
+          ja: "Tralalero Tralala がインターネット文化に与えた影響は、まさに革命的でした。それは、バイラルコンテンツとコミュニティ主導の創造性に対する私たちの考え方を変えました。",
+        }) }</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold mb-2 flex items-center gap-1">
+              <Icon name="mdi:fire" class="w-5 h-5 text-orange-500" />
+              { t({
+                en: "Explosive Growth & Viral Success",
+                es: "Crecimiento Explosivo y Éxito Viral",
+                ar: "نمو هائل ونجاح فيروسي",
+                pt: "Crescimento Explosivo e Sucesso Viral",
+                fr: "Croissance Explosive & Succès Viral",
+                ru: "Взрывной рост и вирусный успех",
+                "zh-cn": "爆发式增长与病毒式成功",
+                ja: "爆発的な成長とバイラルな成功",
+              }) }
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "The Tralalero Tralala phenomenon has garnered over 20 million views on its most popular TikTok videos, with engagement rates surpassing platform averages",
+                  es: "El fenómeno Tralalero Tralala ha acumulado más de 20 millones de visitas en sus videos más populares de TikTok, con tasas de participación que superan el promedio de la plataforma.",
+                  ar: "حققت ظاهرة Tralalero Tralala أكثر من 20 مليون مشاهدة على مقاطع فيديو TikTok الأكثر شهرة، مع تجاوز معدلات المشاركة لمتوسطات المنصة.",
+                  pt: "O fenômeno Tralalero Tralala acumulou mais de 20 milhões de visualizações em seus vídeos mais populares do TikTok, com taxas de engajamento que superam as médias da plataforma.",
+                  fr: "Le phénomène Tralalero Tralala a accumulé plus de 20 millions de vues sur ses vidéos TikTok les plus populaires, avec des taux d'engagement dépassant les moyennes de la plateforme",
+                  ru: "Феномен Tralalero Tralala набрал более 20 миллионов просмотров на своих самых популярных видео в TikTok, с показателями вовлеченности, превышающими средние по платформе",
+                  "zh-cn": "Tralalero Tralala 现象在其最受欢迎的TikTok视频上获得了超过2000万的观看次数，参与率超过了平台平均水平",
+                  ja: "Tralalero Tralala 現象は、その最も人気のあるTikTok動画で2000万回以上の再生回数を獲得しており、エンゲージメント率はプラットフォームの平均を上回っています",
+                }) }</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "Creative adaptations of Tralalero Tralala include phonk remixes and anime-style animations that have further expanded its reach",
+                  es: "Las adaptaciones creativas de Tralalero Tralala incluyen remixes de phonk y animaciones estilo anime que han expandido aún más su alcance.",
+                  ar: "تتضمن التكيفات الإبداعية لـ Tralalero Tralala ريمكسات فونك ورسومًا متحركة بأسلوب الأنمي التي وسعت نطاق انتشاره.",
+                  pt: "Adaptações criativas de Tralalero Tralala incluem remixes de phonk e animações estilo anime que expandiram ainda mais seu alcance.",
+                  fr: "Les adaptations créatives de Tralalero Tralala comprennent des remixes de phonk et des animations de style anime qui ont encore élargi sa portée",
+                  ru: "Творческие адаптации Tralalero Tralalala включают ремиксы в стиле фонка и анимацию в аниме-стиле, которые еще больше расширили его охват",
+                  "zh-cn": "Tralalero Tralala 的创意改编包括Phonk混音和动漫风格动画，这些进一步扩大了其影响力",
+                  ja: "Tralalero Tralala の創造的な適応には、フォンクリミックスやアニメスタイルのアニメーションが含まれており、そのリーチをさらに拡大しています",
+                }) }</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "The character has become a central figure in the \"Italian Brainrot\" trend, influencing meme culture globally",
+                  es: "El personaje se ha convertido en una figura central en la tendencia \"Italian Brainrot\", influyendo en la cultura meme a nivel mundial.",
+                  ar: "أصبحت الشخصية شخصية محورية في ترند \"Italian Brainrot\" (فساد الدماغ الإيطالي)، مما أثر على ثقافة الميم على مستوى العالم.",
+                  pt: "O personagem tornou-se uma figura central na tendência \"Italian Brainrot\", influenciando a cultura meme globalmente.",
+                  fr: "Le personnage est devenu une figure centrale de la tendance \"Italian Brainrot\", influençant la culture des mèmes à l'échelle mondiale",
+                  ru: "Персонаж стал центральной фигурой в тренде \"Italian Brainrot\", влияя на мировую культуру мемов",
+                  "zh-cn": "该角色已成为“意大利脑腐”（Italian Brainrot）趋势的核心人物，影响着全球的迷因文化",
+                  ja: "このキャラクターは「Italian Brainrot」トレンドの中心人物となり、世界中のミーム文化に影響を与えています",
+                }) }</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-2 flex items-center gap-1">
+              <Icon name="mdi:shopping" class="w-5 h-5 text-teal-500" />
+              { t({
+                en: "Commercial Success & Creative Output",
+                es: "Éxito Comercial y Producción Creativa",
+                ar: "نجاح تجاري وإنتاج إبداعي",
+                pt: "Sucesso Comercial e Produção Criativa",
+                fr: "Succès Commercial & Production Créative",
+                ru: "Коммерческий успех и творческий выхлоп",
+                "zh-cn": "商业成功与创意产出",
+                ja: "商業的な成功と創造的な成果",
+              }) }
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "Tralalero Tralala's popularity has led to a surge in 3D printable models available on platforms like Thingiverse and Cults3D",
+                  es: "La popularidad de Tralalero Tralala ha llevado a un aumento en los modelos imprimibles en 3D disponibles en plataformas como Thingiverse y Cults3D.",
+                  ar: "أدت شعبية Tralalero Tralala إلى زيادة في نماذج الطباعة ثلاثية الأبعاد المتاحة على منصات مثل Thingiverse وCults3D.",
+                  pt: "A popularidade de Tralalero Tralala levou a um aumento nos modelos imprimíveis em 3D disponíveis em plataformas como Thingiverse e Cults3D.",
+                  fr: "La popularité de Tralalero Tralala a entraîné une augmentation des modèles imprimables en 3D disponibles sur des plateformes comme Thingiverse et Cults3D",
+                  ru: "Популярность Tralalero Tralalala привела к всплеску доступных для 3D-печати моделей на платформах, таких как Thingiverse и Cults3D",
+                  "zh-cn": "Tralalero Tralala 的流行导致在Thingiverse和Cults3D等平台上可用的3D打印模型激增",
+                  ja: "Tralalero Tralala の人気により、ThingiverseやCults3Dなどのプラットフォームで入手可能な3Dプリントモデルが急増しました",
+                }) }</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "Original Tralalero Tralala music has found success on major streaming platforms, including Spotify and Apple Music",
+                  es: "La música original de Tralalero Tralala ha tenido éxito en las principales plataformas de streaming, incluyendo Spotify y Apple Music.",
+                  ar: "حازت موسيقى Tralalero Tralala الأصلية على نجاح في منصات البث الرئيسية، بما في ذلك Spotify وApple Music.",
+                  pt: "A música original de Tralalero Tralala encontrou sucesso nas principais plataformas de streaming, incluindo Spotify e Apple Music.",
+                  fr: "La musique originale de Tralalero Tralala a rencontré le succès sur les principales plateformes de streaming, notamment Spotify et Apple Music",
+                  ru: "Оригинальная музыка Tralalero Tralala получила успех на основных стриминговых платформах, включая Spotify и Apple Music",
+                  "zh-cn": "Tralalero Tralala 的原创音乐在主要流媒体平台（包括 Spotify 和 Apple Music）上取得了成功",
+                  ja: "オリジナル Tralalero Tralala の音楽は、SpotifyやApple Musicを含む主要なストリーミングプラットフォームで成功を収めています",
+                }) }</span>
+              </li>
+              <li class="flex gap-2">
+                <Icon name="mdi:arrow-right" class="w-5 h-5 text-gray-500 flex-shrink-0" />
+                <span>{ t({
+                  en: "The character has inspired an extensive collection of fan art and animated content across social media",
+                  es: "El personaje ha inspirado una extensa colección de fan art y contenido animado en todas las redes sociales.",
+                  ar: "ألهمت الشخصية مجموعة واسعة من فنون المعجبين والمحتوى المتحرك عبر وسائل التواصل الاجتماعي.",
+                  pt: "O personagem inspirou uma extensa coleção de fan art e conteúdo animado em todas as mídias sociais.",
+                  fr: "Le personnage a inspiré une vaste collection de fan art et de contenu animé sur les médias sociaux",
+                  ru: "Персонаж вдохновил обширную коллекцию фанатского творчества и анимированного контента в социальных сетях",
+                  "zh-cn": "该角色启发了跨社交媒体的大量粉丝艺术和动画内容收藏",
+                  ja: "このキャラクターは、ソーシャルメディア全体で広範なファンアートとアニメーションコンテンツのコレクションを刺激しました",
+                }) }</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Lore -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:book-open-variant" class="w-6 h-6 text-purple-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "The Rich Mythology of Tralalero Tralala",
+          es: "La Rica Mitología de Tralalero Tralala",
+          ar: "الأساطير الغنية لـ Tralalero Tralala",
+          pt: "A Rica Mitologia de Tralalero Tralala",
+          fr: "La Riche Mythologie de Tralalero Tralala",
+          ru: "Богатая мифология Tralalero Tralala",
+          "zh-cn": "Tralalero Tralala 的丰富神话",
+          ja: "Tralalero Tralala の豊かな神話",
+        }) }</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <p class="mb-4">{ t({
+          en: "The Tralalero Tralala universe has expanded far beyond its initial concept, with fans worldwide contributing to an intricate mythology that rivals established franchises. This collaborative storytelling has created a rich tapestry of lore that continues to evolve:",
+          es: "El universo Tralalero Tralala se ha expandido mucho más allá de su concepto inicial, con fans de todo el mundo contribuyendo a una intrincada mitología que rivaliza con franquicias establecidas. Esta narración colaborativa ha creado un rico tapiz de conocimiento que continúa evolucionando:",
+          ar: "توسع عالم Tralalero Tralala إلى ما هو أبعد بكثير من مفهومه الأولي، حيث يساهم المعجبون من جميع أنحاء العالم في أساطير معقدة تنافس الامتيازات القائمة. لقد خلقت هذه الرواية التعاونية نسيجًا غنيًا من المعرفة يستمر في التطور:",
+          pt: "O universo Tralalero Tralala expandiu-se muito além do seu conceito inicial, com fãs de todo o mundo contribuindo para uma mitologia intrincada que rivaliza com franquias estabelecidas. Esta narrativa colaborativa criou uma rica tapeçaria de conhecimento que continua a evoluir:",
+          fr: "L'univers Tralalero Tralala s'est considérablement étendu au-delà de son concept initial, avec des fans du monde entier contribuant à une mythologie complexe qui rivalise avec les franchises établies. Cette narration collaborative a créé une riche tapisserie de savoirs qui continue d'évoluer :",
+          ru: "Вселенная Tralalero Tralala расширилась далеко за пределы первоначальной концепции, и фанаты со всего мира внесли свой вклад в сложную мифологию, которая соперничает с признанными франшизами. Это совместное рассказывание историй создало богатую картину знаний, которая продолжает развиваться:",
+          "zh-cn": "Tralalero Tralala 宇宙已经远远超越了其最初的概念，世界各地的粉丝正在为创造一个复杂的神话做出贡献，这个神话足可以与成熟的特许经营权相媲美。这种协作式叙事创造了一个丰富的传说图景，并且还在持续演变：",
+          ja: "Tralalero Tralala の世界は、その初期のコンセプトをはるかに超えて拡大しており、世界中のファンが確立されたフランチャイズに匹敵する複雑な神話に貢献しています。この共同ストーリーテリングは、進化し続ける豊かな伝承のタペストリーを生み出しました。",
+        }) }</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-purple-50 p-4 rounded-lg">
+            <h3 class="font-semibold mb-2 flex items-center gap-1">
+              <Icon name="mdi:sword" class="w-5 h-5 text-purple-600" />
+              { t({
+                en: "Epic Battles in the Tralalero Tralala Saga",
+                es: "Batallas Épicas en la Saga de Tralalero Tralala",
+                ar: "معارك ملحمية في ملحمة Tralalero Tralala",
+                pt: "Batalhas Épicas na Saga de Tralalero Tralala",
+                fr: "Batailles Épiques dans la Saga Tralalero Tralala",
+                ru: "Эпические битвы в саге Tralalero Tralala",
+                "zh-cn": "Tralalero Tralala 传奇中的史诗战役",
+                ja: "Tralalero Tralala サーガの壮大な戦い",
+              }) }
+            </h3>
+            <ul class="space-y-1 text-sm">
+              <li>{ t({
+                en: "The legendary Croco-Avian Wars that shaped the Tralalero universe",
+                es: "Las legendarias Guerras Croco-Aviares que dieron forma al universo Tralalero",
+                ar: "حروب الكروكو-الطيور الأسطورية التي شكلت عالم Tralalero",
+                pt: "As lendárias Guerras Croco-Avianas que moldaram o universo Tralalero",
+                fr: "Les légendaires Guerres Croco-Aviaires qui ont façonné l'univers Tralalero",
+                ru: "Легендарные Кроко-Птичьи Войны, сформировавшие вселенную Tralalero",
+                "zh-cn": "塑造了 Tralalero 宇宙的传奇鳄鸟战争",
+                ja: "Tralalero ユニバースを形作った伝説のクロコ・アビアン戦争",
+              }) }</li>
+              <li>{ t({
+                en: "The historic conflict with arch-nemesis Bombardino Crocodrilo",
+                es: "El conflicto histórico con el archienemigo Bombardino Crocodrilo",
+                ar: "الصراع التاريخي مع العدو اللدود بومباردينو كروكودريلو",
+                pt: "O conflito histórico com o arqui-inimigo Bombardino Crocodrilo",
+                fr: "Le conflit historique avec l'archi-ennemi Bombardino Crocodrilo",
+                ru: "Исторический конфликт с заклятым врагом Бомбардино Крокодрило",
+                "zh-cn": "与宿敌 Bombardino Crocodrilo 的历史性冲突",
+                ja: "宿敵 Bombardino Crocodrilo との歴史的な対立",
+              }) }</li>
+              <li>{ t({
+                en: "The epic Donkey VS Shark War that changed everything",
+                es: "La épica Guerra Burro VS Tiburón que cambió todo",
+                ar: "حرب الحمار ضد القرش الملحمية التي غيرت كل شيء",
+                pt: "A épica Guerra Burro VS Tubarão que mudou tudo",
+                fr: "L'épique Guerre Âne VS Requin qui a tout changé",
+                ru: "Эпическая Война Ослов против Акул, изменившая все",
+                "zh-cn": "改变一切的史诗级驴子对鲨鱼之战",
+                ja: "すべてを変えた壮大なロバ対サメの戦争",
+              }) }</li>
+            </ul>
+          </div>
+          <div class="bg-purple-50 p-4 rounded-lg">
+            <h3 class="font-semibold mb-2 flex items-center gap-1">
+              <Icon name="mdi:flash" class="w-5 h-5 text-purple-600" />
+              { t({
+                en: "Tralalero Tralala's Extraordinary Abilities",
+                es: "Habilidades Extraordinarias de Tralalero Tralala",
+                ar: "قدرات Tralalero Tralala الخارقة",
+                pt: "Habilidades Extraordinárias de Tralalero Tralala",
+                fr: "Capacités Extraordinaires de Tralalero Tralala",
+                ru: "Необычайные способности Tralalero Tralala",
+                "zh-cn": "Tralalero Tralala 的非凡能力",
+                ja: "Tralalero Tralala の超常能力",
+              }) }
+            </h3>
+            <ul class="space-y-1 text-sm">
+              <li>{ t({
+                en: "Superhuman running capabilities that defy physics",
+                es: "Capacidades de carrera sobrehumanas que desafían la física",
+                ar: "قدرات ركض خارقة تتحدى قوانين الفيزياء",
+                pt: "Capacidades de corrida sobre-humanas que desafiam a física",
+                fr: "Capacités de course surhumaines qui défient la physique",
+                ru: "Сверхчеловеческие беговые способности, бросающие вызов физике",
+                "zh-cn": "超乎寻常、无视物理定律的奔跑能力",
+                ja: "物理法則に逆らう超人的な走行能力",
+              }) }</li>
+              <li>{ t({
+                en: "Advanced regenerative powers enabling instant cloning",
+                es: "Poderes regenerativos avanzados que permiten la clonación instantánea",
+                ar: "قوى تجديد متقدمة تسمح بالاستنساخ الفوري",
+                pt: "Poderes regenerativos avançados que permitem a clonagem instantânea",
+                fr: "Pouvoirs régénératifs avancés permettant le clonage instantané",
+                ru: "Продвинутые регенеративные способности, позволяющие мгновенно клонировать",
+                "zh-cn": "能够实现即时克隆的高级再生能力",
+                ja: "即時クローン作成を可能にする高度な再生能力",
+              }) }</li>
+              <li>{ t({
+                en: "Unmatched jaw strength surpassing natural limits",
+                es: "Fuerza de mandíbula inigualable que supera los límites naturales",
+                ar: "قوة فك لا مثيل لها تتجاوز الحدود الطبيعية",
+                pt: "Força de mandíbula inigualável que supera os limites naturais",
+                fr: "Force de mâchoire inégalée dépassant les limites naturelles",
+                ru: "Непревзойденная сила челюстей, превосходящая естественные пределы",
+                "zh-cn": "超越自然极限、无与伦比的颚部力量",
+                ja: "自然の限界を超える比類なき顎の強さ",
+              }) }</li>
+              <li>{ t({
+                en: "Gravity-defying jumping prowess",
+                es: "Habilidad de salto que desafía la gravedad",
+                ar: "براعة قفز تتحدى الجاذبية",
+                pt: "Habilidade de salto que desafia a gravidade",
+                fr: "Maîtrise du saut défiant la gravité",
+                ru: "Мастерство прыжков, бросающее вызов гравитации",
+                "zh-cn": " defying jumping prowess",
+                ja: "重力に逆らう跳躍力",
+              }) }</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mb-4 bg-gray-100 rounded-lg p-4 aspect-video flex items-center justify-center">
+          <Image src={image2} alt={t({
+            en: "The Expanded Universe of Tralalero Tralala",
+            es: "El Universo Expandido de Tralalero Tralala",
+            ar: "عالم Tralalero Tralala الموسع",
+            pt: "O Universo Expandido de Tralalero Tralala",
+            fr: "L'Univers Étendu de Tralalero Tralala",
+            ru: "Расширенная вселенная Tralalero Tralala",
+            "zh-cn": "Tralalero Tralala 的扩展宇宙",
+            ja: "Tralalero Tralala の拡張ユニバース",
+          })} />
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:timeline" class="w-6 h-6 text-cyan-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "The Tralalero Tralala Timeline",
+          es: "Cronología de Tralalero Tralala",
+          ar: "الجدول الزمني لـ Tralalero Tralala",
+          pt: "Linha do Tempo de Tralalero Tralala",
+          fr: "La Chronologie de Tralalero Tralala",
+          ru: "Хронология Tralalero Tralala",
+          "zh-cn": "Tralalero Tralala 时间线",
+          ja: "Tralalero Tralala タイムライン",
+        }) }</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+        <ol class="relative border-l border-gray-300 ml-3">
+          <li class="mb-6 ml-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-cyan-100 rounded-full -left-3 ring-8 ring-white">
+              <Icon name="mdi:calendar" class="w-3 h-3 text-cyan-700" />
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold">{ t({
+              en: "The Birth of Tralalero Tralala",
+              es: "El Nacimiento de Tralalero Tralala",
+              ar: "ميلاد Tralalero Tralala",
+              pt: "O Nascimento de Tralalero Tralala",
+              fr: "La Naissance de Tralalero Tralala",
+              ru: "Рождение Tralalero Tralala",
+              "zh-cn": "Tralalero Tralala 的诞生",
+              ja: "Tralalero Tralala の誕生",
+            }) }</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-500">January 8, 2025</time>
+            <p class="text-base font-normal">{ t({
+              en: "Creator @elchino1246 introduces Tralalero Tralala to TikTok, sparking immediate interest",
+              es: "El creador @elchino1246 presenta Tralalero Tralala en TikTok, generando interés inmediato",
+              ar: "يقدم المبدع @elchino1246 Tralalero Tralala على TikTok، مما يثير اهتمامًا فوريًا",
+              pt: "O criador @elchino1246 apresenta Tralalero Tralala no TikTok, despertando interesse imediato",
+              fr: "Le créateur @elchino1246 présente Tralalero Tralala sur TikTok, suscitant un intérêt immédiat",
+              ru: "Создатель @elchino1246 представляет Tralalero Tralala в TikTok, вызывая немедленный интерес",
+              "zh-cn": "创作者 @elchino1246 将 Tralalero Tralala 引入 TikTok，立即引发兴趣",
+              ja: "クリエイター @elchino1246 が TikTok に Tralalero Tralala を紹介し、即座に注目を集める"
+            }) }</p>
+          </li>
+          <li class="mb-6 ml-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-cyan-100 rounded-full -left-3 ring-8 ring-white">
+              <Icon name="mdi:calendar" class="w-3 h-3 text-cyan-700" />
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold">{ t({
+              en: "Viral Success of Tralalero Tralala",
+              es: "Éxito Viral de Tralalero Tralala",
+              ar: "النجاح الفيروسي لـ Tralalero Tralala",
+              pt: "Sucesso Viral de Tralalero Tralala",
+              fr: "Succès Viral de Tralalero Tralala",
+              ru: "Вирусный успех Tralalero Tralala",
+              "zh-cn": "Tralalero Tralala 的病毒式成功",
+              ja: "Tralalero Tralala のバイラルな成功"
+            }) }</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-500">January 12, 2025</time>
+            <p class="text-base font-normal">{ t({
+              en: "@andy.promaxo's Tralalero Tralala video achieves viral status with 5M+ views",
+              es: "El video de Tralalero Tralala de @andy.promaxo alcanza el estatus viral con más de 5 millones de visitas",
+              ar: "يحقق فيديو Tralalero Tralala لـ @andy.promaxo انتشارًا واسعًا مع أكثر من 5 مليون مشاهدة",
+              pt: "O vídeo de Tralalero Tralala de @andy.promaxo alcança status viral com mais de 5 milhões de visualizações",
+              fr: "La vidéo Tralalero Tralala de @andy.promaxo atteint un statut viral avec plus de 5 millions de vues",
+              ru: "Видео Tralalero Tralala пользователя @andy.promaxo получает вирусный статус с более чем 5 миллионами просмотров",
+              "zh-cn": "@andy.promaxo 的 Tralalero Tralala 视频获得超过500万观看次数，达到病毒式传播状态",
+              ja: "@andy.promaxo の Tralalero Tralala 動画が500万回以上の再生回数でバイラルステータスを達成"
+            }) }</p>
+          </li>
+          <li class="mb-6 ml-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-cyan-100 rounded-full -left-3 ring-8 ring-white">
+              <Icon name="mdi:calendar" class="w-3 h-3 text-cyan-700" />
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold">{ t({
+              en: "Tralalero Tralala Goes Global",
+              es: "Tralalero Tralala se Vuelve Global",
+              ar: "Tralalero Tralala يصبح عالميًا",
+              pt: "Tralalero Tralala Torna-se Global",
+              fr: "Tralalero Tralala Devient Mondial",
+              ru: "Tralalero Tralala становится глобальным",
+              "zh-cn": "Tralalero Tralala 风靡全球",
+              ja: "Tralalero Tralala がグローバルに"
+            }) }</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-500">January 24, 2025</time>
+            <p class="text-base font-normal">{ t({
+              en: "@billy_pan17's interpretation of Tralalero Tralala reaches 20M views",
+              es: "La interpretación de Tralalero Tralala de @billy_pan17 alcanza los 20 millones de visitas",
+              ar: "تفسير @billy_pan17 لـ Tralalero Tralala يصل إلى 20 مليون مشاهدة",
+              pt: "A interpretação de Tralalero Tralala de @billy_pan17 atinge 20 milhões de visualizações",
+              fr: "L'interprétation de Tralalero Tralala par @billy_pan17 atteint 20 millions de vues",
+              ru: "Интерпретация Tralalero Tralala от @billy_pan17 достигает 20 миллионов просмотров",
+              "zh-cn": "@billy_pan17 对 Tralalero Tralala 的诠释达到2000万观看次数",
+              ja: "@billy_pan17 による Tralalero Tralala の解釈が2000万回再生に達する"
+            }) }</p>
+          </li>
+          <li class="ml-6">
+            <span class="absolute flex items-center justify-center w-6 h-6 bg-cyan-100 rounded-full -left-3 ring-8 ring-white">
+              <Icon name="mdi:calendar" class="w-3 h-3 text-cyan-700" />
+            </span>
+            <h3 class="flex items-center mb-1 text-lg font-semibold">{ t({
+              en: "The Tralalero Tralala Empire Expands",
+              es: "El Imperio Tralalero Tralala se Expande",
+              ar: "إمبراطورية Tralalero Tralala تتوسع",
+              pt: "O Império Tralalero Tralala Expande-se",
+              fr: "L'Empire Tralalero Tralala s'étend",
+              ru: "Империя Tralalero Tralala расширяется",
+              "zh-cn": "Tralalero Tralala 帝国扩张",
+              ja: "Tralalero Tralala 帝国が拡大"
+            }) }</h3>
+            <time class="block mb-2 text-sm font-normal leading-none text-gray-500">February 2025</time>
+            <p class="text-base font-normal">{ t({
+              en: "The phenomenon evolves with merchandise, remixes, and global fan content",
+              es: "El fenómeno evoluciona con mercancía, remixes y contenido de fans global",
+              ar: "تتطور الظاهرة مع البضائع والريمكسات ومحتوى المعجبين العالمي",
+              pt: "O fenômeno evolui com mercadorias, remixes e conteúdo de fãs global",
+              fr: "Le phénomène évolue avec les produits dérivés, les remixes et le contenu de fans mondial",
+              ru: "Феномен развивается с мерчандайзингом, ремиксами и глобальным фанатским контентом",
+              "zh-cn": "这一现象随着商品、混音和全球粉丝内容而发展",
+              ja: "この現象は、商品、リミックス、世界中のファンコンテンツとともに進化しています"
+            }) }</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Explore More -->
+    <section>
+      <div class="flex items-center gap-2 mb-4">
+        <Icon name="mdi:compass" class="w-6 h-6 text-emerald-500" />
+        <h2 class="text-2xl font-bold">{ t({
+          en: "Discover More Tralalero Tralala Content",
+          es: "Descubre Más Contenido de Tralalero Tralala",
+          ar: "اكتشف المزيد من محتوى Tralalero Tralala",
+          pt: "Descubra Mais Conteúdo de Tralalero Tralala",
+          fr: "Découvrez Plus de Contenu Tralalero Tralala",
+          ru: "Узнайте больше о контенте Tralalero Tralalala",
+          "zh-cn": "发现更多 Tralalero Tralala 内容",
+          ja: "Tralalero Tralala のコンテンツをもっと見る"
+        }) }</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="#" class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+          <Icon name="mdi:playlist-music" class="w-12 h-12 text-emerald-500 mb-2" />
+          <h3 class="font-semibold mb-1">{t({
+            en: "Tralalero Tralala Music",
+            es: "Música de Tralalero Tralala",
+            ar: "موسيقى Tralalero Tralala",
+            pt: "Música Tralalero Tralala",
+            fr: "Musique Tralalero Tralala",
+            ru: "Музыка Tralalero Tralalala",
+            "zh-cn": "Tralalero Tralala 音乐",
+            ja: "Tralalero Tralala ミュージック"
+          }) }</h3>
+          <p class="text-sm text-gray-600">{ t({
+            en: "Discover the viral soundtracks and remixes",
+            es: "Descubre las bandas sonoras y remixes virales",
+            ar: "اكتشف الموسيقى التصويرية والريمكسات الفيروسية",
+            pt: "Descubra as trilhas sonoras e remixes virais",
+            fr: "Découvrez les bandes sonores et remixes viraux",
+            ru: "Откройте для себя вирусные саундтреки и ремиксы",
+            "zh-cn": "发现病毒式传播的原声带和混音",
+            ja: "バイラルなサウンドトラックとリミックスを発見する"
+          }) }</p>
+        </a>
+        <a href="#" class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+          <Icon name="mdi:account-group" class="w-12 h-12 text-emerald-500 mb-2" />
+          <h3 class="font-semibold mb-1">{ t({
+            en: "Tralalero Universe",
+            es: "Universo Tralalero",
+            ar: "عالم Tralalero",
+            pt: "Universo Tralalero",
+            fr: "Univers Tralalero",
+            ru: "Вселенная Tralalero",
+            "zh-cn": "Tralalero 宇宙",
+            ja: "Tralalero ユニバース"
+          }) }</h3>
+          <p class="text-sm text-gray-600">{t({
+            en: "Explore the extended character roster",
+            es: "Explora la lista extendida de personajes",
+            ar: "استكشف قائمة الشخصيات الموسعة",
+            pt: "Explore a lista estendida de personagens",
+            fr: "Explorez la liste étendue des personnages",
+            ru: "Исследуйте расширенный список персонажей",
+            "zh-cn": "探索扩展的角色列表",
+            ja: "拡張キャラクターリストを探索する"
+          }) }</p>
+        </a>
+        <a href="#" class="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+          <Icon name="mdi:printer-3d" class="w-12 h-12 text-emerald-500 mb-2" />
+          <h3 class="font-semibold mb-1">{ t({
+            en: "Tralalero Models",
+            es: "Modelos Tralalero",
+            ar: "نماذج Tralalero",
+            pt: "Modelos Tralalero",
+            fr: "Modèles Tralalero",
+            ru: "Модели Tralalero",
+            "zh-cn": "Tralalero 模型",
+            ja: "Tralalero モデル"
+          }) }</h3>
+          <p class="text-sm text-gray-600">{ t({
+            en: "Get your own 3D printed collectibles",
+            es: "Consigue tus propios coleccionables impresos en 3D",
+            ar: "احصل على مقتنياتك المطبوعة ثلاثية الأبعاد",
+            pt: "Obtenha seus próprios colecionáveis impressos em 3D",
+            fr: "Obtenez vos propres objets de collection imprimés en 3D",
+            ru: "Получите свои собственные 3D-печатные коллекционные предметы",
+            "zh-cn": "获取您自己的3D打印收藏品",
+            ja: "独自の3Dプリント収集品を入手する"
+          }) }</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

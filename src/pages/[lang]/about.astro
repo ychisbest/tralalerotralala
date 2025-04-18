@@ -1,0 +1,69 @@
+---
+import Base from "@/layouts/Base.astro";
+import { useTranslations, type Lang, LOCALES } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale as Lang);
+
+export const getStaticPaths = () =>
+  Object.keys(LOCALES).map((lang) => ({
+    params: { lang },
+  }));
+---
+
+<Base>
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8 text-[rgba(55,53,47,0.85)]">
+    {t({
+      en: "About Tralalero Tralala Wiki",
+      es: "Sobre Tralalero Tralala Wiki",
+      ar: "حول ويكي ترالاليرو ترالالا",
+      pt: "Sobre Tralalero Tralala Wiki",
+      fr: "À Propos de Tralalero Tralala Wiki",
+      ru: "О Tralalero Tralala Wiki",
+      "zh-cn": "关于 Tralalero Tralala 维基",
+      ja: "トゥララレロ トゥララーラ ウィキについて"
+    })}
+  </h1>
+
+  <div class="prose prose-slate max-w-none space-y-6 text-[rgba(55,53,47,0.85)]">
+    <p>
+      {t({
+        en: "Tralalerotralala.wiki is your ultimate destination for everything related to the Tralalero Tralala meme universe.",
+        es: "Tralalerotralala.wiki es tu destino definitivo para todo lo relacionado con el universo de memes de Tralalero Tralala.",
+        ar: "Tralalerotralala.wiki هو وجهتك النهائية لكل ما يتعلق بعالم ميمات ترالاليرو ترالالا.",
+        pt: "Tralalerotralala.wiki é o seu destino definitivo para tudo relacionado ao universo de memes do Tralalero Tralala.",
+        fr: "Tralalerotralala.wiki est votre destination ultime pour tout ce qui concerne l'univers des mèmes Tralalero Tralala.",
+        ru: "Tralalerotralala.wiki - это ваш главный источник информации о вселенной мемов Tralalero Tralala.",
+        "zh-cn": "Tralalerotralala.wiki 是您了解 Tralalero Tralala 梗宇宙的终极目的地。",
+        ja: "Tralalerotralala.wiki は、トゥララレロ トゥララーラのミーム世界に関するすべての情報を提供する究極の目的地です。"
+      })}
+    </p>
+
+    <p>
+      {t({
+        en: "Our goal is to document and celebrate the rich history, characters, and stories that make up this unique internet phenomenon.",
+        es: "Nuestro objetivo es documentar y celebrar la rica historia, personajes e historias que conforman este fenómeno único de internet.",
+        ar: "هدفنا هو توثيق والاحتفال بالتاريخ الغني والشخصيات والقصص التي تشكل هذه الظاهرة الفريدة على الإنترنت.",
+        pt: "Nosso objetivo é documentar e celebrar a rica história, personagens e histórias que compõem este fenômeno único da internet.",
+        fr: "Notre objectif est de documenter et de célébrer la riche histoire, les personnages et les histoires qui composent ce phénomène internet unique.",
+        ru: "Наша цель - документировать и прославлять богатую историю, персонажей и истории, составляющие этот уникальный интернет-феномен.",
+        "zh-cn": "我们的目标是记录和庆祝构成这一独特互联网现象的丰富历史、角色和故事。",
+        ja: "私たちの目標は、このユニークなインターネット現象を構成する豊かな歴史、キャラクター、ストーリーを記録し、称えることです。"
+      })}
+    </p>
+
+    <p>
+      {t({
+        en: "Join our community of meme enthusiasts as we explore and expand the ever-growing Tralalero Tralala universe together.",
+        es: "Únete a nuestra comunidad de entusiastas de los memes mientras exploramos y expandimos juntos el universo en constante crecimiento de Tralalero Tralala.",
+        ar: "انضم إلى مجتمعنا من عشاق الميمات بينما نستكشف ونوسع معًا عالم ترالاليرو ترالالا المتنامي.",
+        pt: "Junte-se à nossa comunidade de entusiastas de memes enquanto exploramos e expandimos juntos o universo em constante crescimento do Tralalero Tralala.",
+        fr: "Rejoignez notre communauté d'amateurs de mèmes alors que nous explorons et élargissons ensemble l'univers en constante expansion de Tralalero Tralala.",
+        ru: "Присоединяйтесь к нашему сообществу любителей мемов, пока мы вместе исследуем и расширяем постоянно растущую вселенную Tralalero Tralala.",
+        "zh-cn": "加入我们的梗爱好者社区，一起探索和扩展不断成长的 Tralalero Tralala 宇宙。",
+        ja: "私たちのミーム愛好家コミュニティに参加して、共に成長し続けるトゥララレロ トゥララーラの世界を探索し、拡大していきましょう。"
+      })}
+    </p>
+  </div>
+</div>
+</Base>
