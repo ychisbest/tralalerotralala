@@ -6,27 +6,28 @@ import { shorthash } from "astro/runtime/server/shorthash.js";
 
 //meme wiki site
 export const SITE_TITLE: string | Multilingual = {
-  en: "Tralalero Tralala Wiki - Your Meme Encyclopedia",
-  es: "Tralalero Tralala Wiki - Tu Enciclopedia de Memes",
-  ar: "ترالاليرو ترالالا ويكي - موسوعة الميمات الخاصة بك",
-  pt: "Tralalero Tralala Wiki - Sua Enciclopédia de Memes",
-  fr: "Tralalero Tralala Wiki - Votre Encyclopédie de Mèmes",
-  ru: "Тралалеро Тралала Вики - Ваша Энциклопедия Мемов",
-  "zh-cn": "Tralalero Tralala 维基 - 你的梗百科",
-  ja: "トゥララレロ トゥララーラ ウィキ - あなたのミーム百科事典"
+  en: "Tralalero Tralala Wiki - Expain the tralalero tralala meaning",
+  es: "Tralalero Tralala Wiki - Explica el significado de tralalero tralala",
+  ar: "ترالاليرو ترالالا ويكي - توضيح معنى ترالاليرو ترالالا",
+  pt: "Tralalero Tralala Wiki - Explica o significado de tralalero tralala",
+  fr: "Tralalero Tralala Wiki - Explique le sens de tralalero tralala",
+  ru: "Тралалеро Тралала Вики - Объясните значение tralalero tralala",
+  "zh-cn": "Tralalero Tralala 维基 - 解释 tralalero tralala 的含义",
+  
 };
 
 export const SITE_TITLE_SHORT = "Tralalero Tralala Wiki";
 
 export const SITE_DESCRIPTION: string | Multilingual =  {
-  en: "Discover the fascinating world of memes at Tralalero Tralala Wiki. Your comprehensive guide to internet culture, viral trends, and hilarious moments. Join our community of meme enthusiasts today!",
-  es: "Descubre el fascinante mundo de los memes en Tralalero Tralala Wiki. Tu guía completa de la cultura de internet, tendencias virales y momentos divertidos. ¡Únete a nuestra comunidad!",
-  ar: "اكتشف عالم الميمات المذهل في ترالاليرو ترالالا ويكي. دليلك الشامل لثقافة الإنترنت والاتجاهات الفيروسية واللحظات المضحكة. انضم إلى مجتمعنا اليوم!",
-  pt: "Descubra o fascinante mundo dos memes na Tralalero Tralala Wiki. Seu guia completo da cultura da internet, tendências virais e momentos hilários. Junte-se à nossa comunidade hoje!",
-  fr: "Découvrez le monde fascinant des mèmes sur Tralalero Tralala Wiki. Votre guide complet de la culture Internet, des tendances virales et des moments hilarants. Rejoignez notre communauté!",
-  ru: "Откройте для себя увлекательный мир мемов на Тралалеро Тралала Вики. Ваш полный путеводитель по интернет-культуре, вирусным трендам и забавным моментам. Присоединяйтесь!",
-  "zh-cn": "在 Tralalero Tralala 维基探索迷人的梗世界。这里是你了解互联网文化、病毒趋势和欢乐时刻的完整指南。今天就加入我们的社区！",
-  ja: "トゥララレロ トゥララーラ ウィキで魅力的なミームの世界を発見しましょう。インターネット文化、バイラルトレンド、面白い瞬間の完全ガイド。今すぐコミュニティに参加！"
+  en: "Discover the meaning behind Tralalero Tralala - the viral TikTok meme featuring a three-legged shark in Nike shoes. Learn about its origins, cultural impact and community lore.",
+  es: "Descubre el significado de Tralalero Tralala - el meme viral de TikTok que presenta un tiburón de tres patas con zapatos Nike. Conoce sus orígenes, impacto cultural y tradición comunitaria.",
+  ar: "اكتشف معنى ترالاليرو ترالالا - الميم الفيروسي على تيك توك الذي يصور سمكة قرش بثلاث أرجل ترتدي أحذية نايكي. تعرف على أصوله وتأثيره الثقافي وتراثه المجتمعي.",
+  pt: "Descubra o significado de Tralalero Tralala - o meme viral do TikTok com um tubarão de três pernas usando tênis Nike. Conheça suas origens, impacto cultural e tradição da comunidade.",
+  fr: "Découvrez la signification de Tralalero Tralala - le mème viral TikTok mettant en scène un requin à trois pattes portant des chaussures Nike. Apprenez ses origines, son impact culturel et son histoire communautaire.",
+  ru: "Узнайте значение Тралалеро Тралала - вирусного мема из TikTok с трехногой акулой в кроссовках Nike. Узнайте о его происхождении, культурном влиянии и истории сообщества.",
+  "zh-cn": "探索 Tralalero Tralala 的含义 - TikTok 上穿着耐克鞋的三条腿鲨鱼病毒式传播的梗。了解其起源、文化影响和社区传说。",
+  ja: "Tralalero Tralalaの意味を探る - ナイキのシューズを履いた三本足のサメが特徴のTikTokウイルスミーム。その起源、文化的影響、コミュニティの伝説について学ぶ。"
+
 };
 
 export const X_ACCOUNT: string | Multilingual = "@psephopaiktes";
